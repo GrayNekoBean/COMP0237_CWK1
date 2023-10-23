@@ -88,6 +88,10 @@ if __name__ == "__main__":
             target = args.target.split('-')
             if len(target) == 2:
                 target_bug, target_lang = target
+                
+                if target_lang not in ['python', 'java']:
+                    raise Exception(f"Invalid target language \'{target_lang}\', Please use either \'python\' or \'java\'")
+                
                 validation_path = os.path.join(os.getcwd(), args.project_path, "QuixBugs/", target_lang + "_programs/", target_bug + ".py")
                 if not os.path.exists(validation_path):
                     raise Exception(f"Invalid target \'{args.target}\', Please name your target as \'[bug]-[language]\' with the same name as the QuixBugs repo then try again")
@@ -96,7 +100,10 @@ if __name__ == "__main__":
                         template = "\n{{\n    \"target_files\": [\n        \"QuixBugs/{target_lang}_programs/{target_bug}.py\"\n    ],\n    \"test_command\": \"pytest -s QuixBugs/{target_lang}_testcases/test_{target_bug}.py\"\n}}\n"
                     elif target_lang == 'java':
                         # TODO: add java template
+                        raise NotImplementedError("Java template not implemented yet 😭")
                         pass
+                    else:
+                        raise Exception(f"Invalid target language \'{target_lang}\', Please use either \'python\' or \'java\'")
                     template = template.format(target_lang=target_lang, target_bug=target_bug)
                     config_file = f"{target_bug}-{target_lang}" + '.pyggi.config'
                     with open(os.path.join(os.getcwd(), args.project_path, config_file), 'w') as f:
