@@ -13,7 +13,7 @@
             "justMyCode": true,
             "args": [
                 "--config",
-                "lis.pyggi.config"
+                "lis-python.pyggi.config"
             ]
         }
     ]

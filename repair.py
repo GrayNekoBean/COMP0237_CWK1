@@ -60,8 +60,9 @@ class QuixTabuSearch(LocalSearch):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='PYGGI QuixBug Repair')
     parser.add_argument('--project_path', type=str, default='repairs/')
-    parser.add_argument('--config', type=str, default='.pyggi.config')
-    parser.add_argument('--target', type=str, default='quixbugs')
+    parser.add_argument('--config', type=str, default=None)
+    parser.add_argument('--target', type=str, default=None,
+                        help='target bug and language to repair, if the config file does not exist, this argument will be used to create a new config file')
     parser.add_argument('--mode', type=str, default='tree')
     parser.add_argument('--epoch', type=int, default=10,
         help='total epoch(default: 30)')
@@ -70,10 +71,38 @@ if __name__ == "__main__":
     args = parser.parse_args()
     assert args.mode in ['line', 'tree']
 
+    if args.config and args.target:
+        raise Exception("Please specify either config file or target, not both")
+
     config_file = args.config
     if args.config:
         if not os.path.exists(os.path.join(os.getcwd(), args.project_path, args.config)):
             raise Exception(f"Config file \'{args.config}\' not found")
+
+    if args.target:
+        # If the corresponding config file exists, use the config file
+        if os.path.exists(os.path.join(os.getcwd(), args.project_path, args.target + '.pyggi.config')):
+            config_file = args.target + '.pyggi.config'
+        # If the corresponding config file does not exist, try create a new config file
+        else:        
+            target = args.target.split('-')
+            if len(target) == 2:
+                target_bug, target_lang = target
+                validation_path = os.path.join(os.getcwd(), args.project_path, "QuixBugs/", target_lang + "_programs/", target_bug + ".py")
+                if not os.path.exists(validation_path):
+                    raise Exception(f"Invalid target \'{args.target}\', Please name your target as \'[bug]-[language]\' with the same name as the QuixBugs repo then try again")
+                else:
+                    if target_lang == 'python':
+                        template = "\n{{\n    \"target_files\": [\n        \"QuixBugs/{target_lang}_programs/{target_bug}.py\"\n    ],\n    \"test_command\": \"pytest -s QuixBugs/{target_lang}_testcases/test_{target_bug}.py\"\n}}\n"
+                    elif target_lang == 'java':
+                        # TODO: add java template
+                        pass
+                    template = template.format(target_lang=target_lang, target_bug=target_bug)
+                    config_file = f"{target_bug}-{target_lang}" + '.pyggi.config'
+                    with open(os.path.join(os.getcwd(), args.project_path, config_file), 'w') as f:
+                        f.write(template)
+            else:
+                raise Exception(f"Invalid target \'{args.target}\', Please name your target as \'[bug]-[language]\' then try again")
 
     if args.mode == 'line':
         program = QuixLineProgram(args.project_path, config=config_file)
