@@ -15,18 +15,21 @@ from pyggi.algorithms import LocalSearch
 
 class QuixProgram(AbstractProgram):
     def compute_fitness(self, result, return_code, stdout, stderr, elapsed_time):
+        org_stdout = stdout
         stdout = stdout[:-1]
         stdout = stdout[stdout.rfind("\n")+1:]
         stdout = stdout.replace("=", "").strip()
-        m = re.findall("([0-9]+) failed, ([0-9]+) passed in ([0-9]+\.[0-9]+)s", stdout)
-        m = m[0] if len(m) > 0 else []
-        if len(m) > 0:
-            runtime = float(m[2])
-            failed = int(m[0])
-            passed = int(m[1])
-            result.fitness = failed / (failed + passed)
+        m_fail = re.findall("([0-9]+) failed", stdout)
+        m_pass = re.findall("([0-9]+) passed", stdout)
+        # m_time = re.findall("in ([0-9]+\.[0-9]+)s", stdout)
+        if m_fail or m_pass: #or m_time:
+            # time = float(m_time[0]) if len(m_time) > 0 else 0
+            failed = int(m_fail[0]) if len(m_fail) > 0 else 0
+            passed = int(m_pass[0]) if len(m_pass) > 0 else 0
+            result.fitness = failed / (failed + passed) if failed + passed > 0 else 1
         else:
             result.status = 'PARSE_ERROR'
+            print("STDOUT:", org_stdout)
 
 class QuixLineProgram(LineProgram, QuixProgram):
     pass
