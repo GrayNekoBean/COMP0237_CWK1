@@ -21,7 +21,13 @@ class QuixProgram(AbstractProgram):
         stdout = stdout.replace("=", "").strip()
         m_fail = re.findall("([0-9]+) failed", stdout)
         m_pass = re.findall("([0-9]+) passed", stdout)
+        m_error = re.findall("([0-9]+) error", stdout)
         # m_time = re.findall("in ([0-9]+\.[0-9]+)s", stdout)
+        if len(m_error) > 0:
+            result.status = 'CODE_ERROR'
+            result.fitness = 1
+            return
+        
         if m_fail or m_pass: #or m_time:
             # time = float(m_time[0]) if len(m_time) > 0 else 0
             failed = int(m_fail[0]) if len(m_fail) > 0 else 0
