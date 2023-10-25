@@ -76,8 +76,8 @@ if __name__ == "__main__":
                         help='target bug and language to repair, if the config file does not exist, this argument will be used to create a new config file')
     parser.add_argument('--mode', type=str, default='tree')
     parser.add_argument('--epoch', type=int, default=10,
-        help='total epoch(default: 30)')
-    parser.add_argument('--iter', type=int, default=10,
+        help='total epoch(default: 10)')
+    parser.add_argument('--iter', type=int, default=100,
         help='total iterations per epoch(default: 100)')
     args = parser.parse_args()
     assert args.mode in ['line', 'tree']
@@ -133,22 +133,23 @@ if __name__ == "__main__":
 
     result = tabu_search.run(warmup_reps=1, epoch=args.epoch, max_iter=args.iter, timeout=10)
     
-    success_result = [res for res in result if res['Success']]
-    print("======================RESULT======================")
+    success_results = [res for res in result if res['Success']]
+    print("======================RESULTS======================")
     for res in result:
-        print('========================================')
+        print('----------------------------------------')
         print('Success:', res['Success'])
-        print('Fitness:', res['FitnessEval'])
+        print('Fitted at iteration:', res['FitnessEval'])
         print('Invalid Patch:', res['InvalidPatch'])
         print('Diff: \n', res['diff'])
-        print('----------------------------------------')
+        print('----------------------------------------\n')
     
-    print("======================SUCCESS RESULT======================")
-    for res in success_result:
-        print('========================================')
-        print('Success:', res['Success'])
-        print('Fitness:', res['FitnessEval'])
-        print('Invalid Patch:', res['InvalidPatch'])
-        print('Diff: \n', res['diff'])
-        print('----------------------------------------')
+    unique_diffs = set([res['diff'] for res in success_results])
+    print("======================SUCCESS PATCHES======================")
+    n = 0
+    for res in unique_diffs:
+        print('----------------------------------------\n')
+        print(res)
+        print('----------------------------------------\n')
+        n += 1
+    print(n, 'types of success patches found.')
     program.remove_tmp_variant()
