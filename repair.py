@@ -55,6 +55,8 @@ class QuixTabuSearch(LocalSearch):
         return temp_patch
 
     def is_better_than_the_best(self, fitness, best_fitness):
+        if best_fitness is None:
+            return True
         return fitness < best_fitness
 
     def stopping_criterion(self, iter, fitness):
