@@ -36,3 +36,18 @@ When there's no config file for the target, the program will automatically gener
 * Follow the instructions above, use the ***target*** argument to specify or generate a config file for the target program. Try run this command on more bugs in QuixBugs to test them.
 
 * If you want to test more programs with your own config file, place your config file in the "repairs/" folder and use the ***config*** argument to specify the config file.
+
+* To make the result output to a file at the same time, use `tee` command (in Linux, not sure in Mac):
+```
+python repair.py --target [target_bug]-[target_program] | tee [output_file_path]
+```
+
+For example:
+```
+python repair.py --target lis-python | tee ./lis-python-result.txt
+```
+
+But please note that the Log (non-result part) will always be printed on console and saved in the log file under `.pyggi/logs/` folder, this is done by PyGGI itself. And the result will not include the Log part
+
+
+> Also, Please Remember to clean up your `.pyggi/tmp_variants` directory periodically, otherwise it will take up a lot of space on your computer.
