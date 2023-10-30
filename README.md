@@ -3,6 +3,8 @@ Sync our work here.
 
 ## How to run repair.py
 
+> ***New:*** Make sure `termcolor` is installed. Please use pip to install `termcolor` if you haven't installed it yet.
+
 * Make sure pytest is installed
 * **No need to specify the project path in the command line. The project path will always be "repairs/" to make sure the program functions properly**
 
