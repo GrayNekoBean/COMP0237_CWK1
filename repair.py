@@ -85,7 +85,7 @@ class QuixTabuSearch(LocalSearch):
         empty_patch = Patch(self.program)
         for i in range(warmup_reps):
             result = self.program.evaluate_patch(empty_patch, timeout=timeout)
-            if result.status is not 'INVALID':
+            if result.status != 'INVALID':
                 warmup.append(result.fitness)
         original_fitness = float(sum(warmup)) / len(warmup) if warmup else None
 
@@ -111,6 +111,7 @@ class QuixTabuSearch(LocalSearch):
             cur_result['FitnessEval'] = 0
             cur_result['InvalidPatch'] = 0
             cur_result['diff'] = None
+            cur_result['BestFitness'] = original_fitness
 
             start = time.time()
             for cur_iter in range(1, max_iter + 1):
@@ -118,7 +119,7 @@ class QuixTabuSearch(LocalSearch):
                 run = self.program.evaluate_patch(patch, timeout=timeout)
                 cur_result['FitnessEval'] += 1
 
-                if run.status is 'INVALID':
+                if run.status == 'INVALID':
                     cur_result['InvalidPatch'] += 1
                     update_best = False
                 else:
@@ -126,6 +127,7 @@ class QuixTabuSearch(LocalSearch):
 
                 if update_best:
                     best_fitness, best_patch = run.fitness, patch
+                    cur_result['BestFitness'] = best_fitness
 
                 if verbose:
                     color = 'green' if run.status == 'SUCCESS' else 'yellow'
@@ -217,22 +219,29 @@ if __name__ == "__main__":
     results = tabu_search.run(warmup_reps=1, epoch=args.epoch, max_iter=args.iter, timeout=10)
     
     success_results = [res for res in results if res['Success']]
+    fit_evals = [res['FitnessEval'] for res in success_results if res['Success']]
+    
     print("======================RESULTS======================")
     for res in results:
         print('----------------------------------------')
         print('Success:', res['Success'])
         print('Fitted on iteration:', res['FitnessEval'])
         print('Invalid Patch:', res['InvalidPatch'])
+        print('Fitness:', res['BestFitness'])
         print('Diff: \n', res['diff'])
         print('----------------------------------------\n')
     
     unique_diffs = set([res['diff'] for res in success_results])
-    print("======================SUCCESS PATCHES======================")
+    print(colored("======================SUCCESS PATCHES======================", 'green'))
     n = 0
     for res in unique_diffs:
-        print('----------------------------------------\n')
+        print(colored('----------------------------------------\n', 'green'))
         print(res)
-        print('----------------------------------------\n')
+        print(colored('----------------------------------------\n', 'green'))
         n += 1
     print(n, 'types of success patches found.')
+    success_count = len(success_results)
+    result_count = len(results)
+    print(f"Success rate: {success_count/result_count*100}% ({success_count}/{result_count})")
+    print(f"Average iterations need to success: {int(sum(fit_evals)/len(fit_evals))}")
     program.remove_tmp_variant()
