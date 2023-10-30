@@ -6,12 +6,14 @@ import os
 import sys
 import random
 import argparse
+import time
 from pyggi.base import Patch, AbstractProgram
 from pyggi.line import LineProgram
 from pyggi.line import LineReplacement, LineInsertion, LineDeletion
 from pyggi.tree import TreeProgram
 from pyggi.tree import StmtReplacement, StmtInsertion, StmtDeletion
 from pyggi.algorithms import LocalSearch
+from termcolor import colored
 
 class QuixProgram(AbstractProgram):
     def compute_fitness(self, result, return_code, stdout, stderr, elapsed_time):
@@ -23,16 +25,23 @@ class QuixProgram(AbstractProgram):
         m_pass = re.findall("([0-9]+) passed", stdout)
         m_error = re.findall("([0-9]+) error", stdout)
         # m_time = re.findall("in ([0-9]+\.[0-9]+)s", stdout)
+        
         if len(m_error) > 0:
-            result.status = 'CODE_ERROR'
-            result.fitness = 1
+            result.status = 'INVALID'
+            result.fitness = 2
             return
         
         if m_fail or m_pass: #or m_time:
             # time = float(m_time[0]) if len(m_time) > 0 else 0
+            
             failed = int(m_fail[0]) if len(m_fail) > 0 else 0
             passed = int(m_pass[0]) if len(m_pass) > 0 else 0
             result.fitness = failed / (failed + passed) if failed + passed > 0 else 1
+            
+            if result.fitness == 0:
+                result.status = 'SUCCESS'
+            else:
+                result.status = 'FAIL TEST: ' + str(failed) + '/' + str(failed + passed)
         else:
             result.status = 'PARSE_ERROR'
             print("STDOUT:", org_stdout)
@@ -67,7 +76,80 @@ class QuixTabuSearch(LocalSearch):
 
     def stopping_criterion(self, iter, fitness):
         return fitness == 0
+    
+    def run(self, warmup_reps=1, epoch=5, max_iter=100, timeout=15, verbose=True):
+        if verbose:
+            self.program.logger.info(self.program.logger.log_file_path)
 
+        warmup = list()
+        empty_patch = Patch(self.program)
+        for i in range(warmup_reps):
+            result = self.program.evaluate_patch(empty_patch, timeout=timeout)
+            if result.status is not 'INVALID':
+                warmup.append(result.fitness)
+        original_fitness = float(sum(warmup)) / len(warmup) if warmup else None
+
+        if verbose:
+            self.program.logger.info(
+                "The fitness value of original program: {}".format(original_fitness))
+
+        result = []
+
+        if verbose:
+            self.program.logger.info("Epoch\tIter\tStatus\tFitness\tPatch")
+
+        for cur_epoch in range(1, epoch + 1):
+            # Reset Search
+            self.setup()
+            cur_result = {}
+            best_patch = empty_patch
+            best_fitness = original_fitness
+
+            # Result Initilization
+            cur_result['BestPatch'] = None
+            cur_result['Success'] = False
+            cur_result['FitnessEval'] = 0
+            cur_result['InvalidPatch'] = 0
+            cur_result['diff'] = None
+
+            start = time.time()
+            for cur_iter in range(1, max_iter + 1):
+                patch = self.get_neighbour(best_patch.clone())
+                run = self.program.evaluate_patch(patch, timeout=timeout)
+                cur_result['FitnessEval'] += 1
+
+                if run.status is 'INVALID':
+                    cur_result['InvalidPatch'] += 1
+                    update_best = False
+                else:
+                    update_best = self.is_better_than_the_best(run.fitness, best_fitness)
+
+                if update_best:
+                    best_fitness, best_patch = run.fitness, patch
+
+                if verbose:
+                    color = 'green' if run.status == 'SUCCESS' else 'yellow'
+                    if run.status == 'INVALID':
+                        color = 'red'
+                    self.program.logger.info(colored("{}\t{}\t{}\t{}{}\t{}", color).format(
+                        cur_epoch, cur_iter, run.status, '*' if update_best else '',
+                        run.fitness, patch))
+
+                if run.fitness is not None and self.stopping_criterion(cur_iter, run.fitness):
+                    cur_result['Success'] = True
+                    break
+
+            cur_result['Time'] = time.time() - start
+
+            if best_patch:
+                cur_result['BestPatch'] = best_patch
+                cur_result['BestFitness'] = best_fitness
+                cur_result['diff'] = self.program.diff(best_patch)
+
+            result.append(cur_result)
+        return result
+
+        
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='PYGGI QuixBug Repair')
     parser.add_argument('--project_path', type=str, default='repairs/')
@@ -108,7 +190,7 @@ if __name__ == "__main__":
                     raise Exception(f"Invalid target \'{args.target}\', Please name your target as \'[bug]-[language]\' with the same name as the QuixBugs repo then try again")
                 else:
                     if target_lang == 'python':
-                        template = "\n{{\n    \"target_files\": [\n        \"QuixBugs/{target_lang}_programs/{target_bug}.py\"\n    ],\n    \"test_command\": \"pytest -s QuixBugs/{target_lang}_testcases/test_{target_bug}.py\"\n}}\n"
+                        template = "\n{{\n    \"target_files\": [\n        \"QuixBugs/{target_lang}_programs/{target_bug}.py\"\n    ],\n    \"test_command\": \"pytest QuixBugs/{target_lang}_testcases/test_{target_bug}.py\"\n}}\n"
                     elif target_lang == 'java':
                         # TODO: add java template
                         raise NotImplementedError("Java template not implemented yet 😭")
@@ -119,6 +201,7 @@ if __name__ == "__main__":
                     config_file = f"{target_bug}-{target_lang}" + '.pyggi.config'
                     with open(os.path.join(os.getcwd(), args.project_path, config_file), 'w') as f:
                         f.write(template)
+                        print(f"*****************Config file \'{config_file}\' created.*****************")
             else:
                 raise Exception(f"Invalid target \'{args.target}\', Please name your target as \'[bug]-[language]\' then try again")
 
@@ -131,14 +214,14 @@ if __name__ == "__main__":
         tabu_search = QuixTabuSearch(program)
         tabu_search.operators = [StmtReplacement, StmtInsertion, StmtDeletion]
 
-    result = tabu_search.run(warmup_reps=1, epoch=args.epoch, max_iter=args.iter, timeout=10)
+    results = tabu_search.run(warmup_reps=1, epoch=args.epoch, max_iter=args.iter, timeout=10)
     
-    success_results = [res for res in result if res['Success']]
+    success_results = [res for res in results if res['Success']]
     print("======================RESULTS======================")
-    for res in result:
+    for res in results:
         print('----------------------------------------')
         print('Success:', res['Success'])
-        print('Fitted at iteration:', res['FitnessEval'])
+        print('Fitted on iteration:', res['FitnessEval'])
         print('Invalid Patch:', res['InvalidPatch'])
         print('Diff: \n', res['diff'])
         print('----------------------------------------\n')
