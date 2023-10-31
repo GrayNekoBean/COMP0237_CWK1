@@ -43,8 +43,10 @@ class QuixProgram(AbstractProgram):
             else:
                 result.status = 'FAIL TEST: ' + str(failed) + '/' + str(failed + passed)
         else:
-            result.status = 'PARSE_ERROR'
+            result.status = 'UNKNOWN_ERROR'
+            result.fitness = 1
             print("STDOUT:", org_stdout)
+
 
 class QuixLineProgram(LineProgram, QuixProgram):
     pass
@@ -70,6 +72,8 @@ class QuixTabuSearch(LocalSearch):
         return temp_patch
 
     def is_better_than_the_best(self, fitness, best_fitness):
+        if fitness is None:
+            return False
         if best_fitness is None:
             return True
         return fitness < best_fitness
@@ -159,9 +163,9 @@ if __name__ == "__main__":
     parser.add_argument('--target', type=str, default=None,
                         help='target bug and language to repair, if the config file does not exist, this argument will be used to create a new config file')
     parser.add_argument('--mode', type=str, default='tree')
-    parser.add_argument('--epoch', type=int, default=10,
+    parser.add_argument('--epoch', type=int, default=20,
         help='total epoch(default: 10)')
-    parser.add_argument('--iter', type=int, default=100,
+    parser.add_argument('--iter', type=int, default=400,
         help='total iterations per epoch(default: 100)')
     args = parser.parse_args()
     assert args.mode in ['line', 'tree']
