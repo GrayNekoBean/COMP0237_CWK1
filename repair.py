@@ -119,7 +119,7 @@ class QuixTabuSearch(LocalSearch):
                 run = self.program.evaluate_patch(patch, timeout=timeout)
                 cur_result['FitnessEval'] += 1
 
-                if run.status == 'INVALID':
+                if run.status == 'INVALID' or run.status == 'TIMEOUT':
                     cur_result['InvalidPatch'] += 1
                     update_best = False
                 else:
@@ -243,5 +243,8 @@ if __name__ == "__main__":
     success_count = len(success_results)
     result_count = len(results)
     print(f"Success rate: {success_count/result_count*100}% ({success_count}/{result_count})")
-    print(f"Average iterations need to success: {int(sum(fit_evals)/len(fit_evals))}")
+    avg_fit_evals = 0
+    if(len(fit_evals) != 0):
+        avg_fit_evals = int(sum(fit_evals)/len(fit_evals))
+    print(f"Average iterations need to success: {avg_fit_evals}")
     program.remove_tmp_variant()
