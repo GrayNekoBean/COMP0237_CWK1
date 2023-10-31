@@ -1,0 +1,711 @@
+======================RESULTS======================
+----------------------------------------
+Success: True
+Fitted on iteration: 37
+Invalid Patch: 6
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 44
+Invalid Patch: 4
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 1,7 ****
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+--- 1,12 ----
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 3
+Invalid Patch: 0
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 51
+Invalid Patch: 5
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 4,9 ****
+--- 4,15 ----
+          end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 86
+Invalid Patch: 11
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 4,9 ****
+--- 4,15 ----
+          end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 48
+Invalid Patch: 5
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,9 ****
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         if end == -1:
+!             end = cols
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 51
+Invalid Patch: 7
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,9 ****
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         if end == -1:
+!             end = cols
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 12
+Invalid Patch: 1
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 32
+Invalid Patch: 7
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 1,7 ****
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+--- 1,12 ----
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 46
+Invalid Patch: 11
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 109
+Invalid Patch: 10
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 10
+Invalid Patch: 1
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,9 ****
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         if end == -1:
+!             end = cols
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 16
+Invalid Patch: 2
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 1,7 ****
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+--- 1,12 ----
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 14
+Invalid Patch: 3
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,9 ****
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         if end == -1:
+!             end = cols
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 53
+Invalid Patch: 9
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 81
+Invalid Patch: 11
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,9 ****
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         if end == -1:
+!             end = cols
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 23
+Invalid Patch: 4
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 1,7 ****
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+--- 1,12 ----
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 1
+Invalid Patch: 0
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 46
+Invalid Patch: 4
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,9 ****
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         if end == -1:
+!             end = cols
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 31
+Invalid Patch: 5
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 1,7 ****
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+--- 1,12 ----
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+======================SUCCESS PATCHES======================
+----------------------------------------
+
+*** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,9 ****
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         if end == -1:
+!             end = cols
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+----------------------------------------
+
+*** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 1,7 ****
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+--- 1,12 ----
+  def wrap(text, cols):
+      lines = []
+      while len(text) > cols:
+!         while len(text) > cols:
+!             end = text.rfind(' ', 0, cols + 1)
+!             if end == -1:
+!                 end = cols
+!             line, text = text[:end], text[end:]
+!             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+
+*** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 2,7 ****
+--- 2,13 ----
+      lines = []
+      while len(text) > cols:
+          end = text.rfind(' ', 0, cols + 1)
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          if end == -1:
+              end = cols
+          line, text = text[:end], text[end:]
+
+----------------------------------------
+
+----------------------------------------
+
+*** before: QuixBugs/python_programs/wrap.py
+--- after: QuixBugs/python_programs/wrap.py
+***************
+*** 4,9 ****
+--- 4,15 ----
+          end = text.rfind(' ', 0, cols + 1)
+          if end == -1:
+              end = cols
++         while len(text) > cols:
++             end = text.rfind(' ', 0, cols + 1)
++             if end == -1:
++                 end = cols
++             line, text = text[:end], text[end:]
++             lines.append(line)
+          line, text = text[:end], text[end:]
+          lines.append(line)
+      return lines
+
+----------------------------------------
+
+4 types of success patches found.
+Success rate: 100.0% (20/20)
+Average iterations need to success: 39
