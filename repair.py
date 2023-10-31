@@ -43,6 +43,7 @@ class QuixProgram(AbstractProgram):
             else:
                 result.status = 'FAIL TEST: ' + str(failed) + '/' + str(failed + passed)
         else:
+            result.fitness = 1
             result.status = 'PARSE_ERROR'
             print("STDOUT:", org_stdout)
 
@@ -232,7 +233,7 @@ if __name__ == "__main__":
         print('----------------------------------------\n')
     
     unique_diffs = set([res['diff'] for res in success_results])
-    print(colored("======================SUCCESS PATCHES======================", 'green'))
+    print(colored("======================SUCCESS PATCHES======================\n", 'green'))
     n = 0
     for res in unique_diffs:
         print(colored('----------------------------------------\n', 'green'))
