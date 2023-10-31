@@ -162,7 +162,7 @@ if __name__ == "__main__":
     parser.add_argument('--config', type=str, default=None)
     parser.add_argument('--target', type=str, default=None,
                         help='target bug and language to repair, if the config file does not exist, this argument will be used to create a new config file')
-    parser.add_argument('--mode', type=str, default='tree')
+    parser.add_argument('--mode', type=str, default='line')
     parser.add_argument('--epoch', type=int, default=20,
         help='total epoch(default: 10)')
     parser.add_argument('--iter', type=int, default=400,
