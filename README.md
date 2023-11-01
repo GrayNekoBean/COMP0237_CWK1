@@ -31,7 +31,7 @@ python repair.py --target lis-python
 
 When there's no config file for the target, the program will automatically generate a config file for the target and run the program with the config file generated.
 
-> ⚠️ **Warning**: Auto Generation for Java programs is not supported yet. I will add this feature very soon.
+> ⚠️ **Warning**: Auto Generation for Java programs is not supported yet.
 
 ## How to test more programs
 
@@ -40,12 +40,12 @@ When there's no config file for the target, the program will automatically gener
 * If you want to test more programs with your own config file, place your config file in the "repairs/" folder and use the ***config*** argument to specify the config file.
 
 * To make the result output to a file at the same time, use `tee` command (in Linux, not sure in Mac):
-```
+```shell
 python repair.py --target [target_bug]-[target_program] | tee [output_file_path]
 ```
 
 For example:
-```
+```shell
 python repair.py --target lis-python | tee ./lis-python-result.txt
 ```
 

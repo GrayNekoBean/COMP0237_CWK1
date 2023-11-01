@@ -1,0 +1,227 @@
+======================RESULTS======================
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 130
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 138
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 118
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 111
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 134
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 126
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 131
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 89
+Invalid Patch: 26
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 11,16 ****
+--- 11,17 ----
+  
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
++         if length == longest or val < arr[ends[length + 1]]:
+              longest = length + 1
+  
+      return longest
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 127
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 121
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 129
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 317
+Invalid Patch: 101
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 11,16 ****
+--- 11,17 ----
+  
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
++         if length == longest or val < arr[ends[length + 1]]:
+              longest = length + 1
+  
+      return longest
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 120
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 131
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 116
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 124
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 125
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 121
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 128
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 120
+Fitness: 0.3333333333333333
+Diff: 
+ None
+----------------------------------------
+
+======================SUCCESS PATCHES======================
+
+----------------------------------------
+
+*** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 11,16 ****
+--- 11,17 ----
+  
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
++         if length == longest or val < arr[ends[length + 1]]:
+              longest = length + 1
+  
+      return longest
+
+----------------------------------------
+
+1 types of success patches found.
+Success rate: 10.0% (2/20)
+Average iterations need to success: 203

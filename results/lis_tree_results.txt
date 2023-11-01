@@ -1,0 +1,576 @@
+======================RESULTS======================
+----------------------------------------
+Success: True
+Fitted on iteration: 83
+Invalid Patch: 8
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 52
+Invalid Patch: 7
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 104
+Invalid Patch: 9
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 4
+Invalid Patch: 2
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 77
+Invalid Patch: 7
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 29
+Invalid Patch: 5
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 39
+Invalid Patch: 3
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 87
+Invalid Patch: 9
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 63
+Invalid Patch: 7
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 85
+Invalid Patch: 8
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 80
+Invalid Patch: 9
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 1
+Invalid Patch: 0
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 189
+Invalid Patch: 25
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 120
+Invalid Patch: 12
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 111
+Invalid Patch: 18
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 11
+Invalid Patch: 2
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 234
+Invalid Patch: 30
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 154
+Invalid Patch: 23
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 107
+Invalid Patch: 21
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+----------------------------------------
+Success: True
+Fitted on iteration: 290
+Invalid Patch: 35
+Fitness: 0.0
+Diff: 
+ *** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+======================SUCCESS PATCHES======================
+----------------------------------------
+
+*** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 7,13 ****
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             longest = length + 1
+      return longest
+  
+  
+--- 7,15 ----
+          length = max(prefix_lengths) if prefix_lengths else 0
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+!             if length == longest or val < arr[ends[length + 1]]:
+!                 ends[length + 1] = i
+!                 longest = length + 1
+      return longest
+  
+  
+
+----------------------------------------
+
+----------------------------------------
+
+*** before: QuixBugs/python_programs/lis.py
+--- after: QuixBugs/python_programs/lis.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+          prefix_lengths = [j for j in range(1, longest + 1) if arr[ends[j]] <
+              val]
+          length = max(prefix_lengths) if prefix_lengths else 0
++         ends[length + 1] = i
+          if length == longest or val < arr[ends[length + 1]]:
+              ends[length + 1] = i
+              longest = length + 1
+
+----------------------------------------
+
+2 types of success patches found.
+Success rate: 100.0% (20/20)
+Average iterations need to success: 96
