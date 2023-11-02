@@ -1,0 +1,509 @@
+======================RESULTS======================
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 54
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return -1
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 51
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,12 ****
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
++             return -1
+              return binsearch(mid, end)
+          else:
+              return mid
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 42
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,12 ****
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
++             return -1
+              return binsearch(mid, end)
+          else:
+              return mid
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 55
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 5,11 ****
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
+!             return binsearch(start, mid)
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+          else:
+--- 5,11 ----
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
+!             return -1
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+          else:
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 52
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,12 ****
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
++             return -1
+              return binsearch(mid, end)
+          else:
+              return mid
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 48
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
++             return -1
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 51
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return -1
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 54
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return -1
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 56
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(start, mid)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 47
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(start, mid)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 48
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return -1
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 54
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 5,11 ****
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
+!             return binsearch(start, mid)
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+          else:
+--- 5,11 ----
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
+!             return -1
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+          else:
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 54
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
++             return -1
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 48
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(start, mid)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 51
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,12 ****
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
++             return -1
+              return binsearch(mid, end)
+          else:
+              return mid
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 52
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,12 ****
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
++             return -1
+              return binsearch(mid, end)
+          else:
+              return mid
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 49
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 5,10 ****
+--- 5,11 ----
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
++             return -1
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 52
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(start, mid)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 49
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 5,11 ****
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
+!             return binsearch(start, mid)
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+          else:
+--- 5,11 ----
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
+!             return -1
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+          else:
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 44
+Fitness: 0.14285714285714285
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 7,13 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+      return binsearch(0, len(arr))
+--- 7,13 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return -1
+          else:
+              return mid
+      return binsearch(0, len(arr))
+
+----------------------------------------
+
+======================SUCCESS PATCHES======================
+0 types of success patches found.
+Success rate: 0.0% (0/20)
+Average iterations need to success: 0
