@@ -1,0 +1,158 @@
+python3 repair.py --target find_in_sorted-python --mode line --epoch 10 --iter 400
+======================RESULTS======================
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 184
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 152
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 6,11 ****
+--- 6,12 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
++             return -1
+              return binsearch(mid, end)
+          else:
+              return mid
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 170
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 6,12 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+  
+--- 6,12 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(start, mid)
+          else:
+              return mid
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 163
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 6,12 ****
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(mid, end)
+          else:
+              return mid
+  
+--- 6,12 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+!             return binsearch(start, mid)
+          else:
+              return mid
+  
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 171
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 179
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 175
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 6,11 ****
+--- 6,12 ----
+          if x < arr[mid]:
+              return binsearch(start, mid)
+          elif x > arr[mid]:
++             return binsearch(start, mid)
+              return binsearch(mid, end)
+          else:
+              return mid
+
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 171
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 172
+Diff: 
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted at iteration: 400
+Invalid Patch: 157
+Diff: 
+ *** before: QuixBugs/python_programs/find_in_sorted.py
+--- after: QuixBugs/python_programs/find_in_sorted.py
+***************
+*** 4,9 ****
+--- 4,10 ----
+              return -1
+          mid = start + (end - start) // 2
+          if x < arr[mid]:
++             return -1
+              return binsearch(start, mid)
+          elif x > arr[mid]:
+              return binsearch(mid, end)
+
+----------------------------------------
+
+======================SUCCESS PATCHES======================
+0 types of success patches found.
