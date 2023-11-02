@@ -1,0 +1,167 @@
+======================RESULTS======================
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 129
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 138
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 117
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 121
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 128
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 116
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 118
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 123
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 124
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 127
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 130
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 129
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 117
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 125
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 134
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 134
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 123
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 123
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 125
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+----------------------------------------
+Success: False
+Fitted on iteration: 400
+Invalid Patch: 129
+Fitness: 0.6666666666666666
+Diff:
+ None
+----------------------------------------
+
+======================SUCCESS PATCHES======================
+0 types of success patches found.
+Success rate: 0.0% (0/20)
+Average iterations need to success: 0

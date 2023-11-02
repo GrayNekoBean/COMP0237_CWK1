@@ -163,9 +163,9 @@ if __name__ == "__main__":
                         help='target bug and language to repair, if the config file does not exist, this argument will be used to create a new config file')
     parser.add_argument('--mode', type=str, default='line')
     parser.add_argument('--epoch', type=int, default=20,
-        help='total epoch(default: 10)')
+        help='total epoch(default: 20)')
     parser.add_argument('--iter', type=int, default=400,
-        help='total iterations per epoch(default: 100)')
+        help='total iterations per epoch(default: 400)')
     args = parser.parse_args()
     assert args.mode in ['line', 'tree']
 
